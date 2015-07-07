@@ -1,0 +1,12 @@
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\GenericRepository_UnitOfWork.dll.config
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\GenericRepository_UnitOfWork.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\GenericRepository_UnitOfWork.pdb
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\DataAccess_EF.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\EntityFramework.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\EntityFramework.SqlServer.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\DataAccess_EF.pdb
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\EntityFramework.xml
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\bin\Debug\EntityFramework.SqlServer.xml
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\obj\Debug\GenericRepository_UnitOfWork.csprojResolveAssemblyReference.cache
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\obj\Debug\GenericRepository_UnitOfWork.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\GenericRepository_UnitOfWork\obj\Debug\GenericRepository_UnitOfWork.pdb

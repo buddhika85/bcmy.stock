@@ -1,0 +1,9 @@
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Debug\DataAccess_EF.dll.config
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Debug\DataAccess_EF.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Debug\DataAccess_EF.pdb
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Debug\EntityFramework.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Debug\EntityFramework.SqlServer.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Debug\EntityFramework.xml
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Debug\EntityFramework.SqlServer.xml
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\obj\Debug\DataAccess_EF.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\obj\Debug\DataAccess_EF.pdb

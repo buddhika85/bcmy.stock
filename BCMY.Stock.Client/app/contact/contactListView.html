@@ -1,0 +1,137 @@
+﻿<div>
+    <h4>{{vm.title}}</h4>
+    <br />
+    <button ng-click='vm.insertContact()'>Insert new contact</button>
+    <br />
+    <br />
+
+    <div class="table-responsive">
+        <!--JS Data table -->
+        <table cellpadding="0" cellspacing="0" border="0" class="display table-bordered" id="example"></table>
+    </div>
+
+    <!-- Modal to insert/edit/view info-->
+    <div id="myModal" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="modalTitle">Add new Contact</h4>
+                </div>
+
+                <div class="modal-body">
+
+                    <input type="hidden" id="contactId" />
+                    
+                    <!--start form-->
+                    <form class="form-horizontal">
+
+                        <!--company info - company name, designation, status-->
+                        <fieldset title="Customer/Supplier Information">
+                            <legend style="font-size:medium;">Customer/Supplier Information</legend>
+                            <div class="form-group">
+                                <label for="selectCompany" class="control-label col-xs-2 fontWeightNormal">Company</label>
+                                <div class="col-xs-10">
+                                    <select id="selectCompany" name="companies" class="form-control"></select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputDesignation" class="control-label col-xs-2 fontWeightNormal">Designation</label>
+                                <div class="col-xs-10">
+                                    <input type="text" class="form-control" id="inputDesignation" placeholder="Job/Poitition with in the company" maxlength="25">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="selectStatus" class="control-label col-xs-2 fontWeightNormal">Status</label>
+                                <div class="col-xs-10">
+                                    <select id="selectStatus" name="companies" class="form-control">
+                                        <option value="active" selected="selected">Active</option>
+                                        <option value="inactive">Inactive</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtAreaOthers" class="control-label col-xs-2 fontWeightNormal">Others</label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control" id="txtAreaOthers" placeholder="Other contacts with in the company" readonly="readonly"/>
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!--Personal info-->
+                        <fieldset title="Personal Information">
+                            <legend style="font-size:medium;">Personal information</legend>
+                            <div class="form-group">
+                                <label for="selectTitle" class="control-label col-xs-2 fontWeightNormal">Title</label>
+                                <div class="col-xs-10">
+                                    <select id="selectTitle" name="title" class="form-control">
+                                        <option value="-1" selected="selected">---- Select title ----</option>
+                                        <option value="Mr">Mr</option>
+                                        <option value="Ms">Ms</option>
+                                        <option value="Mrs">Mrs</option>
+                                        <option value="Miss">Miss</option>
+                                        <option value="Dr">Dr</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputfName" class="control-label col-xs-2 fontWeightNormal">First name</label>
+                                <div class="col-xs-10">
+                                    <input id="inputfName" class="form-control" placeholder="First name of the person" maxlength="20"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputlName" class="control-label col-xs-2 fontWeightNormal">Last name</label>
+                                <div class="col-xs-10">
+                                    <input id="inputlName" class="form-control" placeholder="Last name of the person" maxlength="25"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputlDirectDial" class="control-label col-xs-2 fontWeightNormal">Direct dial</label>
+                                <div class="col-xs-4">
+                                    <input id="inputlDirectDial" class="form-control" placeholder="Telephone number" />
+                                </div>
+                                <label for="inputlExt" class="control-label col-xs-2 fontWeightNormal">Extension</label>
+                                <div class="col-xs-4">
+                                    <input id="inputlExt" class="form-control" placeholder="ext" onkeypress="return isNumberKey(event)" maxlength="5" />
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="inputEmail" class="control-label col-xs-2 fontWeightNormal">Email</label>
+                                <div class="col-xs-10">
+                                    <input id="inputEmail" class="form-control" placeholder="Company email address" maxlength="50"/>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="txtNotes" class="control-label col-xs-2 fontWeightNormal">Notes</label>
+                                <div class="col-xs-10">
+                                    <textarea class="form-control" id="txtNotes" placeholder="Some notes about the contact - Eg - Prefers Cannot over Hp..." />
+                                </div>
+                            </div>
+                        </fieldset>
+
+                        <!-- error message section -->
+                        <div class="form-group">
+                            <div class="col-md-12">
+                                <label class="control-label fontWeightNormal" style="color:red" id="lblErrorMessage"></label>
+                            </div>
+                        </div>
+
+                    </form>
+
+                </div>
+
+                <div class="modal-footer">
+                    <button id="btnSave" type="button" class="btn btn-primary" ng-click='vm.saveContact()'>Save</button>
+                    <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End modal popup-->
+
+</div>

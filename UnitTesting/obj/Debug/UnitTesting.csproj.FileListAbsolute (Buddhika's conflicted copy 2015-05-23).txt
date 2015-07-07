@@ -1,0 +1,2 @@
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\UnitTesting\bin\Debug\EntityFramework.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\UnitTesting\bin\Debug\EntityFramework.SqlServer.dll

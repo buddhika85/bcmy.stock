@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="361030d9dea7438f8005a904c719a3c4" Name="Diagram1">
+        <EntityTypeShape EntityType="BCMYModel.vProductInfo" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCMYModel.productbrand" Width="1.5" PointX="3.75" PointY="2.375" />
+        <EntityTypeShape EntityType="BCMYModel.ProductCategory" Width="1.5" PointX="0.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCMYModel.productCondition" Width="1.5" PointX="2.75" PointY="6.75" />
+        <EntityTypeShape EntityType="BCMYModel.productlist" Width="1.5" PointX="6" PointY="1" />
+        <EntityTypeShape EntityType="BCMYModel.productprice" Width="1.5" PointX="8.25" PointY="2.125" />
+        <AssociationConnector Association="BCMYModel.FK_productlist_productbrand" />
+        <AssociationConnector Association="BCMYModel.FK__productpr__produ__4F47C5E3" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

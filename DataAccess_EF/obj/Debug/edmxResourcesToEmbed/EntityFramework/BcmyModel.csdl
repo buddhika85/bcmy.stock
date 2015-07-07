@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BCMYModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="vProductInfo">
+    <Key>
+      <PropertyRef Name="productlistId" />
+      <PropertyRef Name="model" />
+      <PropertyRef Name="quantity" />
+      <PropertyRef Name="weight_grams" />
+      <PropertyRef Name="volume_cm3" />
+      <PropertyRef Name="productbrandid" />
+      <PropertyRef Name="productbrandname" />
+      <PropertyRef Name="marketvalue" />
+      <PropertyRef Name="productActionName" />
+      <PropertyRef Name="producttypeid" />
+      <PropertyRef Name="ProductCatergoryName" />
+      <PropertyRef Name="conditionName" />
+    </Key>
+    <Property Name="productlistId" Type="Int32" Nullable="false" />
+    <Property Name="model" Type="String" MaxLength="150" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="weight_grams" Type="Int32" Nullable="false" />
+    <Property Name="volume_cm3" Type="Int32" Nullable="false" />
+    <Property Name="product_image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="abbr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="model_public" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description_public" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="productbrandid" Type="Int32" Nullable="false" />
+    <Property Name="productbrandname" Type="String" MaxLength="40" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="marketvalue" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+    <Property Name="actionId" Type="Int32" />
+    <Property Name="productActionName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="producttypeid" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="productcategory" Type="Int32" />
+    <Property Name="ProductCatergoryName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="productcondition" Type="Int32" />
+    <Property Name="conditionName" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+  </EntityType>
+  <EntityContainer Name="BCMYEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="vProductInfoes" EntityType="Self.vProductInfo" />
+    <EntitySet Name="productbrands" EntityType="BCMYModel.productbrand" />
+    <EntitySet Name="ProductCategories" EntityType="BCMYModel.ProductCategory" />
+    <EntitySet Name="productConditions" EntityType="BCMYModel.productCondition" />
+    <EntitySet Name="productlists" EntityType="BCMYModel.productlist" />
+    <EntitySet Name="productprices" EntityType="BCMYModel.productprice" />
+    <AssociationSet Name="FK_productlist_productbrand" Association="BCMYModel.FK_productlist_productbrand">
+      <End Role="productbrand" EntitySet="productbrands" />
+      <End Role="productlist" EntitySet="productlists" />
+    </AssociationSet>
+    <AssociationSet Name="FK__productpr__produ__4F47C5E3" Association="BCMYModel.FK__productpr__produ__4F47C5E3">
+      <End Role="productlist" EntitySet="productlists" />
+      <End Role="productprice" EntitySet="productprices" />
+    </AssociationSet>
+    <FunctionImport Name="SP_GetDistinctProductModels" ReturnType="Collection(String)" />
+  </EntityContainer>
+  <EntityType Name="productbrand">
+    <Key>
+      <PropertyRef Name="productbrandid" />
+    </Key>
+    <Property Name="productbrandid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productbrandname" Type="String" Nullable="false" MaxLength="40" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="productlists" Relationship="BCMYModel.FK_productlist_productbrand" FromRole="productbrand" ToRole="productlist" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ProductCatergoryName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="productCondition">
+    <Key>
+      <PropertyRef Name="conditionID" />
+    </Key>
+    <Property Name="conditionID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="conditionName" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="productlist">
+    <Key>
+      <PropertyRef Name="productlistid" />
+    </Key>
+    <Property Name="productlistid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="producttypeid" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="model" Type="String" Nullable="false" MaxLength="150" FixedLength="false" Unicode="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+    <Property Name="Description" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="productbrandid" Type="Int32" Nullable="false" />
+    <Property Name="weight_grams" Type="Int32" Nullable="false" />
+    <Property Name="volume_cm3" Type="Int32" Nullable="false" />
+    <Property Name="product_image" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="abbr" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="model_public" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="description_public" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="dateUpdated" Type="DateTime" Precision="3" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="actionID" Type="Int32" />
+    <NavigationProperty Name="productbrand" Relationship="BCMYModel.FK_productlist_productbrand" FromRole="productlist" ToRole="productbrand" />
+    <NavigationProperty Name="productprices" Relationship="BCMYModel.FK__productpr__produ__4F47C5E3" FromRole="productlist" ToRole="productprice" />
+  </EntityType>
+  <EntityType Name="productprice">
+    <Key>
+      <PropertyRef Name="productpriceid" />
+    </Key>
+    <Property Name="productpriceid" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productlistid" Type="Int32" Nullable="false" />
+    <Property Name="marketvalue" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="returnvalue" Type="Decimal" Nullable="false" Precision="19" Scale="4" />
+    <Property Name="pricelistID" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="productlist" Relationship="BCMYModel.FK__productpr__produ__4F47C5E3" FromRole="productprice" ToRole="productlist" />
+  </EntityType>
+  <Association Name="FK_productlist_productbrand">
+    <End Type="BCMYModel.productbrand" Role="productbrand" Multiplicity="1" />
+    <End Type="BCMYModel.productlist" Role="productlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productbrand">
+        <PropertyRef Name="productbrandid" />
+      </Principal>
+      <Dependent Role="productlist">
+        <PropertyRef Name="productbrandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__productpr__produ__4F47C5E3">
+    <End Type="BCMYModel.productlist" Role="productlist" Multiplicity="1" />
+    <End Type="BCMYModel.productprice" Role="productprice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productlist">
+        <PropertyRef Name="productlistid" />
+      </Principal>
+      <Dependent Role="productprice">
+        <PropertyRef Name="productlistid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

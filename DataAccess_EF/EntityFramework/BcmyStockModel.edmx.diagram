@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="387b20deb32e44c0a6d87f6e0e993675" Name="Diagram1">
+        <EntityTypeShape EntityType="BCMY_StockModel.TblBusiness" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCMY_StockModel.TblContact" Width="1.5" PointX="3" PointY="2.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCMY_StockModel.TblCustomerSupplier" Width="1.5" PointX="0.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCMY_StockModel.TblNegotiation" Width="1.5" PointX="7.5" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCMY_StockModel.TblOrder" Width="1.5" PointX="5.25" PointY="3" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCMY_StockModel.TblOrderLine" Width="1.5" PointX="7.5" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="BCMY_StockModel.TblProductStock" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <AssociationConnector Association="BCMY_StockModel.FK__TblContac__custo__719CDDE7" ManuallyRouted="false" />
+        <AssociationConnector Association="BCMY_StockModel.FK__TblOrder__contac__76619304" ManuallyRouted="false" />
+        <AssociationConnector Association="BCMY_StockModel.FK__TblNegoti__order__7E02B4CC" ManuallyRouted="false" />
+        <AssociationConnector Association="BCMY_StockModel.FK__TblOrderL__order__7A3223E8" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

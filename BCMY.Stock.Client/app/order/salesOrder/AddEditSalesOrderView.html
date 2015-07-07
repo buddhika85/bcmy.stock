@@ -1,0 +1,368 @@
+﻿<div>
+    <div ng-click="vm.ReloadPage()" style="cursor:pointer"><h4>{{vm.title}}</h4></div>
+    <br />
+        
+    <!-- panel for - Buyer/Seller information-->
+    <div class="panel panel-default">
+                        
+        <div class="panel-body">
+
+            <fieldset>
+                <legend style="font-size:medium;" class="panel-heading" id="customerHeaderPanel">Buyer / Seller information</legend>  
+                <div id="customerSection">
+                    <div class="form-group row">
+                        <!--customer selection-->
+                        <label for="selectCustSupp" class="control-label col-md-1 fontWeightNormal">Customer company</label>
+                        <div class="col-md-4">
+                            <select id="selectCustSupp">
+                                <option>---- Select customer ----</option>
+                            </select>
+                        </div>
+
+                        <!--contact selection-->
+                        <label for="selectContact" class="control-label col-md-1 fontWeightNormal">Contact person</label>
+                        <div class="col-md-4">                            
+                            <select id="selectContact" class="col-md-11">
+                                <option>---- Select contact ----</option>
+                            </select>
+                            <div class="col-md-1">
+                            </div>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button ui-sref="contactList" class="col-md-12 btn btn-primary btn-xs fontWeightNormal" title="new contact creation" id="addContactBtn">Add New Contact</button>
+                        </div>
+                    </div>
+
+                    <!--buttons and links-->
+                    <div class="form-group row">
+                        <div class="col-md-10">
+                            <!--error message-->
+                            <label class="control-label fontWeightNormal" style="color:red" id="lblErrorMessageCrtOrdr"></label>
+                        </div>
+                        <div class="col-md-2">
+                            <button class="col-md-12 fontWeightNormal" ng-click="vm.createOrder()" id="createOrdrBtn">Create Order</button>
+                        </div>
+                    </div>
+
+                    <!--order Id stored as a hidden field, when an order is created this will be populated-->
+                    <input type="hidden" id="orderId" value="-1" />
+                </div>   
+            </fieldset>
+
+        </div>        
+    </div>
+
+    <!-- panel for - Product information-->
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+
+            <fieldset>
+                <legend style="font-size:medium;" id="productSearchPanelHeading" class="panel-heading">Product information</legend>
+
+                <div id="productSerahcForm">
+                    <!--Information on search-->
+                    <div class="form-group row">
+                        <p class="col-md-12">
+                            <kbd>IMPORTANT:</kbd>&nbsp;&nbsp;
+                            First select the product <code>category</code>,
+                            then based on that the <code>condition</code>, then the <code>brand</code>
+                            and finally the <code>model</code>
+                        </p>
+                    </div>
+
+                    <div class="form-group row">
+
+                        <!--category selection-->
+                        <label for="selectCategory" class="control-label col-md-1 fontWeightNormal">Category</label>
+                        <div class="col-md-4">
+                            <select id="selectCategory">
+                                <option>---- Select Category ----</option>
+                            </select>
+                        </div>
+
+                        <!--condition selection-->
+                        <label for="selectCondition" class="control-label col-md-1 fontWeightNormal">Condition</label>
+                        <div class="col-md-4">
+                            <select id="selectCondition">
+                                <option>---- Select Condition ----</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button class="col-md-12 fontWeightNormal" ng-click="vm.resetSearch()" id="resetBtn">Reset Search</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+
+                        <!--brand selection-->
+                        <label for="selectBrand" class="control-label col-md-1 fontWeightNormal">Brand</label>
+                        <div class="col-md-4">
+                            <select id="selectBrand" multiple>
+                                <option>---- Select Brand ----</option>
+                            </select>
+                        </div>
+
+                        <!--model selection-->
+                        <label for="selectModel" class="control-label col-md-1 fontWeightNormal">Model</label>
+                        <div class="col-md-4">
+                            <select id="selectModel" multiple>
+                                <option>---- Select Model ----</option>
+                            </select>
+                        </div>
+
+                        <div class="col-md-2">
+                            <button class="col-md-12 fontWeightNormal" ng-click="vm.searchProducts()" id="btnSearchProducts">Search Products</button>
+                        </div>
+                    </div>
+
+                    <!--error message-->
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <label class="control-label fontWeightNormal" style="color:red" id="lblErrorMessage"></label>
+                        </div>
+                    </div>
+                </div>
+            </fieldset>
+
+        </div>
+    </div>
+
+    <!--Product search result grid -->
+    <div class="panel panel-default">
+                
+        <div class="panel-body">
+
+            <fieldset>
+                <legend style="font-size:medium;" id="productPanelHeading" class="panel-heading">Product search results</legend>
+                <div class="form-group row">
+                    <div class="col-md-1"></div>
+                    <div class="col-md-10" id="productsGridDiv">
+
+                        <div class="row table-responsive">
+                            <!--JS Data table -->
+                            <table cellpadding="0" cellspacing="0" border="0" class="display table-condensed" id="productsGrid"></table>
+                        </div>
+                    </div>
+                    <div class="col-md-1"></div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+
+    <!--Product order details grid -->
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+
+            <fieldset>
+                <legend style="font-size:medium;" class="panel-heading" id="orderDetailsPanelHeading">Order details</legend>
+                <div id="orderlinesSection">
+                    <div class="form-group row">
+                        <div class="col-md-12">
+                            <br />
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10" id="productsGridDiv">
+                            <div class="row table-responsive">
+                                <!--JS Data table -->
+                                <table cellpadding="0" cellspacing="0" border="0" class="display table-bordered table-condensed" id="orderGrid"></table>
+                            </div>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <!--error message-->
+                    <div class="form-group row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-10">
+                            <label class="control-label fontWeightNormal" style="color:red" id="lblErrorOrderLineMessage"></label>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                    <!--order related buttons -->
+                    <div class="form-group row">
+                        <div class="col-md-1"></div>
+                        <div class="col-md-5">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="col-md-12 fontWeightNormal" ng-click="vm.confirmOrder()" id="btnConfirmOdr">   Complete and Submit Order   </button>
+                        </div>
+                        <div class="col-md-1">
+                        </div>
+                        <div class="col-md-2">
+                            <button class="col-md-12 fontWeightNormal" ng-click="vm.downloadOrderReport()" id="btnDwnldOrdRprt">Download Order Report</button>
+                        </div>
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+
+            </fieldset>
+        </div>
+    </div>
+
+
+    <!-- Modal to add order line, negotiation-->
+    <div id="modelNegotiation" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+
+            <!-- Modal content-->
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4 class="modal-title" id="modalTitle">Manage Negotiation</h4>
+                </div>
+
+                <div class="modal-body">
+                    <!--Top level product info-->
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+
+                            <fieldset>
+                                <legend style="font-size:medium;">Top Level Product Info</legend>
+
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <!--model-->
+                                        <label for="lblModel" class="fontWeightNormal">Model - </label>
+                                        <label id="lblModel" class="darkBlueFont">Default</label>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <!--market value -->
+                                        <label for="lblMktVal" class="fontWeightNormal">Market Value -</label>
+                                        <label id="lblMktVal" class="darkBlueFont">Default</label>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <!--current stock count -->
+                                        <label for="lblStockCount" class="fontWeightNormal">Stock Count - </label>
+                                        <label id="lblStockCount" class="darkBlueFont">Default</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <input type="hidden" id="productListId" value="-999"/>
+                                    <div class="col-md-4">
+                                        <!--category -->
+                                        <label for="lblCetegory" class="fontWeightNormal">Category - </label>
+                                        <label id="lblCetegory" class="darkBlueFont">Default</label>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <!--condition-->
+                                        <label for="lblCondition" class="fontWeightNormal">Condition - </label>
+                                        <label id="lblCondition" class="darkBlueFont">Default</label>
+                                    </div>
+
+                                    <div class="col-md-4">
+                                        <!--brand-->
+                                        <label for="lblBrand" class="fontWeightNormal">Brand - </label>
+                                        <label id="lblBrand" class="darkBlueFont">Default</label>
+                                    </div>
+                                </div>
+                                
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!--End Top level product info-->
+
+                    <!--Previouse 3 successful negotiations -->
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+
+                            <fieldset>
+                                <legend style="font-size:medium;">Previouse Successful Negotiations</legend>
+                                <div class="row table-responsive">
+
+                                    <div class="col-md-12" id="successNegotiationsGridDiv">
+                                    </div>
+
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!--End Previouse 3 successful negotiations -->
+
+                    <!-- Current negotiation-->
+                    <div class="panel panel-default">
+
+                        <div class="panel-body">
+                            <fieldset>
+                                <legend style="font-size:medium;">Current Negotiation</legend>
+
+                                <!--Negotiation History-->
+                                <div class="row table-responsive">
+                                    <div class="col-md-12" id="orderNegotiationsGridDiv">
+                                    </div>
+                                </div>
+                                    
+                                <!--form inputs -->
+                                <div class="row">
+                                    <div class="form-inline col-md-4">
+                                        <label for="quantity">Quantity</label>
+                                        <input id="quantityInput" type="text" placeholder="Quantity" />
+                                    </div>
+                                    <div class="form-inline col-md-4">
+                                        <label for="price">Price Per Item</label>
+                                        <input id="priceInput" type="text" placeholder="Price you offer" />
+                                    </div>
+                                    <div class="form-inline col-md-4">
+                                        <label for="statusSelect">Status</label>
+                                        <select id="statusSelect">
+                                        </select>
+                                    </div>
+                                </div>
+
+                                <!--Total income-->
+                                <div class="row">
+                                    <div class="form-inline col-md-6">
+                                        <label for="totalIncome">Total Value (£) = </label>
+                                        <label id="totalIncome" type="text" class="darkBlueFont" >0.0</label>                                            
+                                    </div>                                    
+                                    <div class="form-inline col-md-6">                                        
+                                    </div>
+                                </div>
+
+                                <!--Error message row-->
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <!--error message-->
+                                        <label class="control-label fontWeightNormal" style="color:red" id="lblErrorManageNegotiation">Error</label>
+                                    </div>
+                                </div>
+
+                                <!--form buttons -->
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <!--<button id="btnAddNegotion" type="button" class="btn-xs btn-success col-md-5" ng-click="vm.recordNegotiation()">Record Negotiation</button>
+                                        <div class="col-md-1"></div>-->
+                                        <button id="btnAddOrderline" type="button" class="btn-xs btn-success col-md-5" ng-click="vm.addOrderline()">Submit</button>
+                                    </div>
+                                    <!--<div class="col-md-4"></div>-->
+                                </div>
+
+                            </fieldset>
+                        </div>
+                    </div>
+                    <!--End current negotiation-->
+
+                </div>
+
+                <div class="modal-footer">
+                    <!--<button id="btnSave" type="button" class="btn btn-primary">Save</button>
+                    <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>-->
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!--End modal popup-->
+
+</div>

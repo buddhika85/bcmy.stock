@@ -1,0 +1,10 @@
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Release\DataAccess_EF.dll.config
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Release\DataAccess_EF.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Release\DataAccess_EF.pdb
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Release\EntityFramework.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Release\EntityFramework.SqlServer.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Release\EntityFramework.xml
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\bin\Release\EntityFramework.SqlServer.xml
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\obj\Release\DataAccess_EF.csprojResolveAssemblyReference.cache
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\obj\Release\DataAccess_EF.dll
+E:\KTP Project\Dropbox\Stage 1 - Mini project\Implementation\VisualStudioSolution\bcmy.stock\DataAccess_EF\obj\Release\DataAccess_EF.pdb

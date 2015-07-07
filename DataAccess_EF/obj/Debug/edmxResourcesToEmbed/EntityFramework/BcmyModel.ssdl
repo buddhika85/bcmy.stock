@@ -1,0 +1,160 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BCMYModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="productbrand">
+    <Key>
+      <PropertyRef Name="productbrandid" />
+    </Key>
+    <Property Name="productbrandid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productbrandname" Type="varchar" MaxLength="40" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ProductCategory">
+    <Key>
+      <PropertyRef Name="ProductCategoryID" />
+    </Key>
+    <Property Name="ProductCategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ProductCatergoryName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productCondition">
+    <Key>
+      <PropertyRef Name="conditionID" />
+    </Key>
+    <Property Name="conditionID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="conditionName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <EntityType Name="productlist">
+    <Key>
+      <PropertyRef Name="productlistid" />
+    </Key>
+    <Property Name="productlistid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="producttypeid" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="productbrandid" Type="int" Nullable="false" />
+    <Property Name="weight_grams" Type="int" Nullable="false" />
+    <Property Name="volume_cm3" Type="int" Nullable="false" />
+    <Property Name="product_image" Type="varchar" MaxLength="100" />
+    <Property Name="abbr" Type="varchar" MaxLength="50" />
+    <Property Name="model_public" Type="varchar" MaxLength="50" />
+    <Property Name="description_public" Type="varchar" MaxLength="50" />
+    <Property Name="dateUpdated" Type="datetime" />
+    <Property Name="status" Type="varchar" MaxLength="10" />
+    <Property Name="actionID" Type="int" />
+  </EntityType>
+  <EntityType Name="productprice">
+    <Key>
+      <PropertyRef Name="productpriceid" />
+    </Key>
+    <Property Name="productpriceid" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productlistid" Type="int" Nullable="false" />
+    <Property Name="marketvalue" Type="money" Nullable="false" />
+    <Property Name="returnvalue" Type="money" Nullable="false" />
+    <Property Name="pricelistID" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Errors Found During Generation:
+warning 6002: The table/view 'BCMY.dbo.vProductInfo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+  <EntityType Name="vProductInfo">
+    <Key>
+      <PropertyRef Name="productlistId" />
+      <PropertyRef Name="model" />
+      <PropertyRef Name="quantity" />
+      <PropertyRef Name="weight_grams" />
+      <PropertyRef Name="volume_cm3" />
+      <PropertyRef Name="productbrandid" />
+      <PropertyRef Name="productbrandname" />
+      <PropertyRef Name="marketvalue" />
+      <PropertyRef Name="productActionName" />
+      <PropertyRef Name="producttypeid" />
+      <PropertyRef Name="ProductCatergoryName" />
+      <PropertyRef Name="conditionName" />
+    </Key>
+    <Property Name="productlistId" Type="int" Nullable="false" />
+    <Property Name="model" Type="varchar" MaxLength="150" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="100" />
+    <Property Name="weight_grams" Type="int" Nullable="false" />
+    <Property Name="volume_cm3" Type="int" Nullable="false" />
+    <Property Name="product_image" Type="varchar" MaxLength="100" />
+    <Property Name="abbr" Type="varchar" MaxLength="50" />
+    <Property Name="model_public" Type="varchar" MaxLength="50" />
+    <Property Name="description_public" Type="varchar" MaxLength="50" />
+    <Property Name="dateUpdated" Type="datetime" />
+    <Property Name="status" Type="varchar" MaxLength="10" />
+    <Property Name="productbrandid" Type="int" Nullable="false" />
+    <Property Name="productbrandname" Type="varchar" MaxLength="40" Nullable="false" />
+    <Property Name="marketvalue" Type="money" Nullable="false" />
+    <Property Name="actionId" Type="int" />
+    <Property Name="productActionName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="producttypeid" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="productcategory" Type="int" />
+    <Property Name="ProductCatergoryName" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="productcondition" Type="int" />
+    <Property Name="conditionName" Type="varchar" MaxLength="100" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__productpr__produ__4F47C5E3">
+    <End Role="productlist" Type="Self.productlist" Multiplicity="1" />
+    <End Role="productprice" Type="Self.productprice" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productlist">
+        <PropertyRef Name="productlistid" />
+      </Principal>
+      <Dependent Role="productprice">
+        <PropertyRef Name="productlistid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_productlist_productbrand">
+    <End Role="productbrand" Type="Self.productbrand" Multiplicity="1" />
+    <End Role="productlist" Type="Self.productlist" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="productbrand">
+        <PropertyRef Name="productbrandid" />
+      </Principal>
+      <Dependent Role="productlist">
+        <PropertyRef Name="productbrandid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_GetDistinctProductModels" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="BCMYModelStoreContainer">
+    <EntitySet Name="productbrand" EntityType="Self.productbrand" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ProductCategory" EntityType="Self.ProductCategory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productCondition" EntityType="Self.productCondition" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productlist" EntityType="Self.productlist" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="productprice" EntityType="Self.productprice" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="vProductInfo" EntityType="Self.vProductInfo" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [vProductInfo].[productlistId] AS [productlistId], 
+    [vProductInfo].[model] AS [model], 
+    [vProductInfo].[quantity] AS [quantity], 
+    [vProductInfo].[Description] AS [Description], 
+    [vProductInfo].[weight_grams] AS [weight_grams], 
+    [vProductInfo].[volume_cm3] AS [volume_cm3], 
+    [vProductInfo].[product_image] AS [product_image], 
+    [vProductInfo].[abbr] AS [abbr], 
+    [vProductInfo].[model_public] AS [model_public], 
+    [vProductInfo].[description_public] AS [description_public], 
+    [vProductInfo].[dateUpdated] AS [dateUpdated], 
+    [vProductInfo].[status] AS [status], 
+    [vProductInfo].[productbrandid] AS [productbrandid], 
+    [vProductInfo].[productbrandname] AS [productbrandname], 
+    [vProductInfo].[marketvalue] AS [marketvalue], 
+    [vProductInfo].[actionId] AS [actionId], 
+    [vProductInfo].[productActionName] AS [productActionName], 
+    [vProductInfo].[producttypeid] AS [producttypeid], 
+    [vProductInfo].[productcategory] AS [productcategory], 
+    [vProductInfo].[ProductCatergoryName] AS [ProductCatergoryName], 
+    [vProductInfo].[productcondition] AS [productcondition], 
+    [vProductInfo].[conditionName] AS [conditionName]
+    FROM [dbo].[vProductInfo] AS [vProductInfo]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK__productpr__produ__4F47C5E3" Association="Self.FK__productpr__produ__4F47C5E3">
+      <End Role="productlist" EntitySet="productlist" />
+      <End Role="productprice" EntitySet="productprice" />
+    </AssociationSet>
+    <AssociationSet Name="FK_productlist_productbrand" Association="Self.FK_productlist_productbrand">
+      <End Role="productbrand" EntitySet="productbrand" />
+      <End Role="productlist" EntitySet="productlist" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

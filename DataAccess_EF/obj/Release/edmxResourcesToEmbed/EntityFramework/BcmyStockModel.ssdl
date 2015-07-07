@@ -1,0 +1,227 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BCMY_StockModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="TblBusiness">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="500" />
+    <Property Name="logo" Type="varchar(max)" />
+    <Property Name="addressLine1" Type="varchar" MaxLength="50" />
+    <Property Name="addressLine2" Type="varchar" MaxLength="500" />
+    <Property Name="addressLine3" Type="varchar" MaxLength="500" />
+    <Property Name="postcode" Type="varchar" MaxLength="10" />
+    <Property Name="country" Type="varchar" MaxLength="100" />
+    <Property Name="bank" Type="varchar" MaxLength="200" />
+    <Property Name="accountNumber" Type="varchar" MaxLength="200" />
+    <Property Name="sortcode" Type="varchar" MaxLength="100" />
+    <Property Name="iban" Type="varchar" MaxLength="200" />
+    <Property Name="swift" Type="varchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="TblContact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="title" Type="varchar" MaxLength="5" Nullable="false" />
+    <Property Name="firstName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="lastName" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="position" Type="varchar" MaxLength="100" />
+    <Property Name="directDial" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="email" Type="varchar" MaxLength="100" />
+    <Property Name="status" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="notes" Type="varchar(max)" />
+    <Property Name="customerSupplierId" Type="int" />
+  </EntityType>
+  <EntityType Name="TblCustomerSupplier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="name" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="logo" Type="varchar(max)" />
+    <Property Name="addressLine1" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="addressLine2" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="addressLine3" Type="varchar" MaxLength="500" Nullable="false" />
+    <Property Name="postcode" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="country" Type="varchar" MaxLength="100" Nullable="false" />
+    <Property Name="telephone" Type="varchar" MaxLength="15" Nullable="false" />
+    <Property Name="bank" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="vatNumber" Type="varchar" MaxLength="20" />
+    <Property Name="accountNumber" Type="varchar" MaxLength="20" />
+    <Property Name="sortcode" Type="varchar" MaxLength="20" />
+    <Property Name="iban" Type="varchar" MaxLength="20" />
+    <Property Name="swift" Type="varchar" MaxLength="20" />
+    <Property Name="creationDateTime" Type="datetime" Nullable="false" />
+    <Property Name="inactiveDateTime" Type="datetime" />
+    <Property Name="active" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblNegotiation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="negotiatedPricePerItem" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="totalAmount" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="negotiationDateTime" Type="datetime" Nullable="false" />
+    <Property Name="orderId" Type="int" />
+  </EntityType>
+  <EntityType Name="TblOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="type" Type="varchar" MaxLength="10" Nullable="false" />
+    <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="total" Type="decimal" Precision="20" Scale="5" />
+    <Property Name="contactId" Type="int" />
+    <Property Name="creationDateTime" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TblOrderLine">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="productId" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="negotiatedPricePerItem" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="totalAmount" Type="decimal" Precision="10" Scale="5" />
+    <Property Name="status" Type="varchar" MaxLength="20" Nullable="false" />
+    <Property Name="orderLineQuantityStatus" Type="varchar(max)" Nullable="false" />
+    <Property Name="orderlineDateTime" Type="datetime" Nullable="false" />
+    <Property Name="orderId" Type="int" />
+  </EntityType>
+  <EntityType Name="TblProductStock">
+    <Key>
+      <PropertyRef Name="productId" />
+    </Key>
+    <Property Name="productId" Type="int" Nullable="false" />
+    <Property Name="quantity" Type="int" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__TblContac__custo__35BCFE0A">
+    <End Role="TblCustomerSupplier" Type="Self.TblCustomerSupplier" Multiplicity="0..1" />
+    <End Role="TblContact" Type="Self.TblContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCustomerSupplier">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblContact">
+        <PropertyRef Name="customerSupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblNegoti__order__2645B050">
+    <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="0..1" />
+    <End Role="TblNegotiation" Type="Self.TblNegotiation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOrder">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblNegotiation">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblOrder__contac__1EA48E88">
+    <End Role="TblContact" Type="Self.TblContact" Multiplicity="0..1" />
+    <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblContact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblOrder">
+        <PropertyRef Name="contactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblOrderL__order__22751F6C">
+    <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="0..1" />
+    <End Role="TblOrderLine" Type="Self.TblOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOrder">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblOrderLine">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="SP_ConfirmOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_CreateOrder" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="companyId" Type="int" Mode="In" />
+    <Parameter Name="contactFulName" Type="varchar(max)" Mode="In" />
+    <Parameter Name="type" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetAllOrderViewModels" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetContactInfo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="contactId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetContactsByCustomerSupplierId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="customerSupplierId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetContactsWithCompanyNames" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_GetCustomerSuppliersByFullName" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="fullName" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_GetNegotiationsByOrderProductIds" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderId" Type="int" Mode="In" />
+    <Parameter Name="productListId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetOrderlineInfoById" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderlineId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_GetSuccessNegotiationsByProductId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="orderId" Type="int" Mode="In" />
+    <Parameter Name="productListId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_PopulateTblProductStockForTesting" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_SaveOrderLineWithNegotiation" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="productListId" Type="int" Mode="In" />
+    <Parameter Name="quantityVal" Type="decimal" Mode="In" />
+    <Parameter Name="pricePerItem" Type="decimal" Mode="In" />
+    <Parameter Name="totalAmountVal" Type="decimal" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="dateTime" Type="datetime" Mode="In" />
+    <Parameter Name="orderIdVal" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_SearchOrders" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="companyId" Type="int" Mode="In" />
+    <Parameter Name="contactFulName" Type="varchar" Mode="In" />
+    <Parameter Name="orderId" Type="int" Mode="In" />
+    <Parameter Name="status" Type="varchar" Mode="In" />
+    <Parameter Name="orderType" Type="varchar" Mode="In" />
+    <Parameter Name="creationDateFrom" Type="datetime" Mode="In" />
+    <Parameter Name="creationDateTo" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_SearchOrders_Simple" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <EntityContainer Name="BCMY_StockModelStoreContainer">
+    <EntitySet Name="TblBusiness" EntityType="Self.TblBusiness" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblContact" EntityType="Self.TblContact" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblCustomerSupplier" EntityType="Self.TblCustomerSupplier" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblNegotiation" EntityType="Self.TblNegotiation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblOrder" EntityType="Self.TblOrder" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblOrderLine" EntityType="Self.TblOrderLine" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TblProductStock" EntityType="Self.TblProductStock" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__TblContac__custo__35BCFE0A" Association="Self.FK__TblContac__custo__35BCFE0A">
+      <End Role="TblCustomerSupplier" EntitySet="TblCustomerSupplier" />
+      <End Role="TblContact" EntitySet="TblContact" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblNegoti__order__2645B050" Association="Self.FK__TblNegoti__order__2645B050">
+      <End Role="TblOrder" EntitySet="TblOrder" />
+      <End Role="TblNegotiation" EntitySet="TblNegotiation" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblOrder__contac__1EA48E88" Association="Self.FK__TblOrder__contac__1EA48E88">
+      <End Role="TblContact" EntitySet="TblContact" />
+      <End Role="TblOrder" EntitySet="TblOrder" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblOrderL__order__22751F6C" Association="Self.FK__TblOrderL__order__22751F6C">
+      <End Role="TblOrder" EntitySet="TblOrder" />
+      <End Role="TblOrderLine" EntitySet="TblOrderLine" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

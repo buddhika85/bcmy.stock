@@ -1,0 +1,198 @@
+﻿<div>
+    <h4>{{vm.title}}</h4>
+    <br />
+
+    <!-- panel for - Buyer/Seller information-->
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+
+            <fieldset>
+                <legend style="font-size:medium;" class="panel-heading" id="customerHeaderPanel">Buyer / Seller information</legend>
+                <div id="customerSection">
+                    <div class="form-group row">
+                        <!--customer selection-->
+                        <label for="selectCustSupp" class="control-label col-md-2 fontWeightNormal">Customer company</label>
+                        <div class="col-md-4">
+                            <select id="selectCustSupp">
+                                <option>---- Select customer ----</option>
+                            </select>
+                        </div>
+
+                        <!--contact selection-->
+                        <label for="selectContact" class="control-label col-md-2 fontWeightNormal">Contact person</label>
+                        <div class="col-md-4">
+                            <select id="selectContact" class="col-md-11">
+                                <option>---- Select contact ----</option>
+                            </select>
+                            <div class="col-md-1">
+                            </div>
+                        </div>                        
+                    </div>                    
+                </div>
+            </fieldset>
+
+        </div>
+    </div>
+    <!-- end panel for - Buyer/Seller information-->
+
+
+    <!-- panel for - Order search information-->
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+
+            <fieldset>
+                <legend style="font-size:medium;" class="panel-heading" id="orderSearchHeaderPanel">Order information</legend>
+                <div id="orderSection">
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="inputOrdrId" class="control-label fontWeightNormal">Order ID</label>
+                        </div>
+                        <div class="col-md-10">
+                            <input type="text" maxlength="6" placeholder="order ID" id="inputOrdrId" onkeypress="return isNumberKey(event)" />
+                        </div>
+                    </div>
+
+                    <!--empty raw-->
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="statusSelect" class="control-label fontWeightNormal">Order type</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select id="statusOrderType">
+                                <option value="0" selected>all</option>
+                                <option value="sales">sales</option>
+                                <option value="purchase">purchase</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!--empty raw-->
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-2">
+                            <label for="statusSelect" class="control-label fontWeightNormal">Status</label>
+                        </div>
+                        <div class="col-md-10">
+                            <select id="statusSelect"></select>
+                        </div>
+                    </div>
+
+                    <!--empty raw-->
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+
+                    <!--from-to creation dates-->
+                    <div class="row">
+                        
+                        <div class="col-md-2">
+                            <label for="dateFrom" class="control-label fontWeightNormal datePickerLbl">Creation date from</label>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="form-group">                                
+                                <input type="text" id="fromDatePicker" name="from">
+                            </div>
+
+                        </div>
+                       
+                        <div class="col-md-2">
+                            <label for="dateTo" class="control-label fontWeightNormal datePickerLbl">Creation date to</label>
+                        </div>
+                        <div class="col-md-4">
+
+                            <div class="form-group">                                
+                                <input type="text" id="toDatePicker" name="to">
+                            </div>
+
+                        </div>
+                        
+                    </div>
+
+                    <!--empty raw-->
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+
+                    <!--error message-->
+                    <div class="row">                        
+                        <div class="col-md-12">
+                            <label class="control-label fontWeightNormal" style="color:red" id="lblSearchError"></label>
+                        </div>                        
+                    </div>
+
+                    <!--empty raw-->
+                    <div class="row">
+                        <div class="col-md-12">
+                        </div>
+                    </div>
+
+                    <!--buttons -->
+                    <div class="row">
+                        <div class="col-md-5"></div>
+                        <div class="col-md-2">
+                            <button class="col-md-12 fontWeightNormal" ng-click="vm.serachOrders()" id="btnSearchOrders">Search Orders</button>
+                        </div>
+                        <div class="col-md-1">                            
+                        </div>
+                        <div class="col-md-2">
+                            <button class="col-md-12 fontWeightNormal" ng-click="vm.resetSearch()" id="btnResetSearch">Reset</button>
+                        </div>
+                        <div class="col-md-2">
+                        </div>                        
+                    </div>
+
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <!-- End panel for - Order search information-->
+
+    <!-- panel for - Search result-->
+    <div class="panel panel-default">
+
+        <div class="panel-body">
+
+            <fieldset>
+                <legend style="font-size:medium;" class="panel-heading" id="searchResultHeaderPanel">Search Result</legend>
+
+                <!--empty raw-->
+                <div class="row">
+                    <div class="col-md-12" style="padding:5px">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div id="searchResultSection">
+                        <div class="col-md-1"></div>
+
+                        <div class="col-md-10">
+                            <div class="row table-responsive">
+                                <!--JS Data table -->
+                                <table cellpadding="0" cellspacing="0" border="0" class="table-bordered table-condensed" id="ordersGrid"></table>
+                            </div>
+                        </div>
+
+                        <div class="col-md-1"></div>
+                    </div>
+                </div>
+            </fieldset>
+        </div>
+    </div>
+    <!-- End panel for - Search result-->
+
+</div>

@@ -1,0 +1,339 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BCMY_StockModelStoreContainer" CdmEntityContainer="BCMY_StockEntities">
+    <EntitySetMapping Name="TblBusinesses">
+      <EntityTypeMapping TypeName="BCMY_StockModel.TblBusiness">
+        <MappingFragment StoreEntitySet="TblBusiness">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="addressLine1" ColumnName="addressLine1" />
+          <ScalarProperty Name="addressLine2" ColumnName="addressLine2" />
+          <ScalarProperty Name="addressLine3" ColumnName="addressLine3" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="sortcode" ColumnName="sortcode" />
+          <ScalarProperty Name="iban" ColumnName="iban" />
+          <ScalarProperty Name="swift" ColumnName="swift" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblContacts">
+      <EntityTypeMapping TypeName="BCMY_StockModel.TblContact">
+        <MappingFragment StoreEntitySet="TblContact">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="directDial" ColumnName="directDial" />
+          <ScalarProperty Name="extension" ColumnName="extension" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="customerSupplierId" ColumnName="customerSupplierId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblCustomerSuppliers">
+      <EntityTypeMapping TypeName="BCMY_StockModel.TblCustomerSupplier">
+        <MappingFragment StoreEntitySet="TblCustomerSupplier">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="addressLine1" ColumnName="addressLine1" />
+          <ScalarProperty Name="addressLine2" ColumnName="addressLine2" />
+          <ScalarProperty Name="addressLine3" ColumnName="addressLine3" />
+          <ScalarProperty Name="town" ColumnName="town" />
+          <ScalarProperty Name="county" ColumnName="county" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="vatNumber" ColumnName="vatNumber" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="sortcode" ColumnName="sortcode" />
+          <ScalarProperty Name="iban" ColumnName="iban" />
+          <ScalarProperty Name="swift" ColumnName="swift" />
+          <ScalarProperty Name="creationDateTime" ColumnName="creationDateTime" />
+          <ScalarProperty Name="inactiveDateTime" ColumnName="inactiveDateTime" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblNegotiations">
+      <EntityTypeMapping TypeName="BCMY_StockModel.TblNegotiation">
+        <MappingFragment StoreEntitySet="TblNegotiation">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="negotiatedPricePerItem" ColumnName="negotiatedPricePerItem" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="negotiationDateTime" ColumnName="negotiationDateTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOrders">
+      <EntityTypeMapping TypeName="BCMY_StockModel.TblOrder">
+        <MappingFragment StoreEntitySet="TblOrder">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="creationDateTime" ColumnName="creationDateTime" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblOrderLines">
+      <EntityTypeMapping TypeName="BCMY_StockModel.TblOrderLine">
+        <MappingFragment StoreEntitySet="TblOrderLine">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="negotiatedPricePerItem" ColumnName="negotiatedPricePerItem" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="orderLineQuantityStatus" ColumnName="orderLineQuantityStatus" />
+          <ScalarProperty Name="orderlineDateTime" ColumnName="orderlineDateTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="TblProductStocks">
+      <EntityTypeMapping TypeName="BCMY_StockModel.TblProductStock">
+        <MappingFragment StoreEntitySet="TblProductStock">
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_ConfirmOrder" FunctionName="BCMY_StockModel.Store.SP_ConfirmOrder" />
+    <FunctionImportMapping FunctionImportName="SP_CreateOrder" FunctionName="BCMY_StockModel.Store.SP_CreateOrder" />
+    <FunctionImportMapping FunctionImportName="SP_GetAllOrderViewModels" FunctionName="BCMY_StockModel.Store.SP_GetAllOrderViewModels">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetAllOrderViewModels_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="creationDateTime" ColumnName="creationDateTime" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="contactFulName" ColumnName="contactFulName" />
+          <ScalarProperty Name="orderCreationDate" ColumnName="orderCreationDate" />
+          <ScalarProperty Name="orderCreationTime" ColumnName="orderCreationTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetContactInfo" FunctionName="BCMY_StockModel.Store.SP_GetContactInfo" />
+    <FunctionImportMapping FunctionImportName="SP_GetContactsByCustomerSupplierId" FunctionName="BCMY_StockModel.Store.SP_GetContactsByCustomerSupplierId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetContactsByCustomerSupplierId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="directDial" ColumnName="directDial" />
+          <ScalarProperty Name="extension" ColumnName="extension" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="customerSupplierId" ColumnName="customerSupplierId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetContactsWithCompanyNames" FunctionName="BCMY_StockModel.Store.SP_GetContactsWithCompanyNames">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetContactsWithCompanyNames_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="title" ColumnName="title" />
+          <ScalarProperty Name="firstName" ColumnName="firstName" />
+          <ScalarProperty Name="lastName" ColumnName="lastName" />
+          <ScalarProperty Name="position" ColumnName="position" />
+          <ScalarProperty Name="directDial" ColumnName="directDial" />
+          <ScalarProperty Name="extension" ColumnName="extension" />
+          <ScalarProperty Name="email" ColumnName="email" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="notes" ColumnName="notes" />
+          <ScalarProperty Name="customerSupplierId" ColumnName="customerSupplierId" />
+          <ScalarProperty Name="customerSupplierName" ColumnName="customerSupplierName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetCustomerSuppliersByFullName" FunctionName="BCMY_StockModel.Store.SP_GetCustomerSuppliersByFullName">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetCustomerSuppliersByFullName_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="logo" ColumnName="logo" />
+          <ScalarProperty Name="addressLine1" ColumnName="addressLine1" />
+          <ScalarProperty Name="addressLine2" ColumnName="addressLine2" />
+          <ScalarProperty Name="addressLine3" ColumnName="addressLine3" />
+          <ScalarProperty Name="postcode" ColumnName="postcode" />
+          <ScalarProperty Name="country" ColumnName="country" />
+          <ScalarProperty Name="telephone" ColumnName="telephone" />
+          <ScalarProperty Name="bank" ColumnName="bank" />
+          <ScalarProperty Name="vatNumber" ColumnName="vatNumber" />
+          <ScalarProperty Name="accountNumber" ColumnName="accountNumber" />
+          <ScalarProperty Name="sortcode" ColumnName="sortcode" />
+          <ScalarProperty Name="iban" ColumnName="iban" />
+          <ScalarProperty Name="swift" ColumnName="swift" />
+          <ScalarProperty Name="creationDateTime" ColumnName="creationDateTime" />
+          <ScalarProperty Name="inactiveDateTime" ColumnName="inactiveDateTime" />
+          <ScalarProperty Name="active" ColumnName="active" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetNegotiationsByOrderProductIds" FunctionName="BCMY_StockModel.Store.SP_GetNegotiationsByOrderProductIds">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetNegotiationsByOrderProductIds_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="negotiatedPricePerItem" ColumnName="negotiatedPricePerItem" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="negotiationDateTime" ColumnName="negotiationDateTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetOrderlineInfoById" FunctionName="BCMY_StockModel.Store.SP_GetOrderlineInfoById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetOrderlineInfoById_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="negotiatedPricePerItem" ColumnName="negotiatedPricePerItem" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="orderLineQuantityStatus" ColumnName="orderLineQuantityStatus" />
+          <ScalarProperty Name="orderlineDateTime" ColumnName="orderlineDateTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="categoryId" ColumnName="categoryId" />
+          <ScalarProperty Name="category" ColumnName="category" />
+          <ScalarProperty Name="conditionId" ColumnName="conditionId" />
+          <ScalarProperty Name="condition" ColumnName="condition" />
+          <ScalarProperty Name="brandId" ColumnName="brandId" />
+          <ScalarProperty Name="brand" ColumnName="brand" />
+          <ScalarProperty Name="marketvalue" ColumnName="marketvalue" />
+          <ScalarProperty Name="stockCount" ColumnName="stockCount" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetOrderLinesByOrderId" FunctionName="BCMY_StockModel.Store.SP_GetOrderLinesByOrderId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetOrderLinesByOrderId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="negotiatedPricePerItem" ColumnName="negotiatedPricePerItem" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="orderLineQuantityStatus" ColumnName="orderLineQuantityStatus" />
+          <ScalarProperty Name="orderlineDateTime" ColumnName="orderlineDateTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetOrderVmById" FunctionName="BCMY_StockModel.Store.SP_GetOrderVmById">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetOrderVmById_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="creationDateTime" ColumnName="creationDateTime" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="contactFulName" ColumnName="contactFulName" />
+          <ScalarProperty Name="orderCreationDate" ColumnName="orderCreationDate" />
+          <ScalarProperty Name="orderCreationTime" ColumnName="orderCreationTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetSuccessNegotiationsByProductId" FunctionName="BCMY_StockModel.Store.SP_GetSuccessNegotiationsByProductId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_GetSuccessNegotiationsByProductId_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="negotiatedPricePerItem" ColumnName="negotiatedPricePerItem" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="negotiationDateTime" ColumnName="negotiationDateTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="date" ColumnName="date" />
+          <ScalarProperty Name="time" ColumnName="time" />
+          <ScalarProperty Name="customerSupplierId" ColumnName="customerSupplierId" />
+          <ScalarProperty Name="cusomerSupplierName" ColumnName="cusomerSupplierName" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="contactName" ColumnName="contactName" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_PopulateTblProductStockForTesting" FunctionName="BCMY_StockModel.Store.SP_PopulateTblProductStockForTesting" />
+    <FunctionImportMapping FunctionImportName="SP_SaveOrderLineWithNegotiation" FunctionName="BCMY_StockModel.Store.SP_SaveOrderLineWithNegotiation">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_SaveOrderLineWithNegotiation_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="productId" ColumnName="productId" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="negotiatedPricePerItem" ColumnName="negotiatedPricePerItem" />
+          <ScalarProperty Name="totalAmount" ColumnName="totalAmount" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="orderLineQuantityStatus" ColumnName="orderLineQuantityStatus" />
+          <ScalarProperty Name="orderlineDateTime" ColumnName="orderlineDateTime" />
+          <ScalarProperty Name="orderId" ColumnName="orderId" />
+          <ScalarProperty Name="model" ColumnName="model" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_SearchOrders" FunctionName="BCMY_StockModel.Store.SP_SearchOrders">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_SearchOrders_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="creationDateTime" ColumnName="creationDateTime" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="contactFulName" ColumnName="contactFulName" />
+          <ScalarProperty Name="orderCreationDate" ColumnName="orderCreationDate" />
+          <ScalarProperty Name="orderCreationTime" ColumnName="orderCreationTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_SearchOrders_Simple" FunctionName="BCMY_StockModel.Store.SP_SearchOrders_Simple">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="BCMY_StockModel.SP_SearchOrders_Simple_Result">
+          <ScalarProperty Name="id" ColumnName="id" />
+          <ScalarProperty Name="type" ColumnName="type" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="total" ColumnName="total" />
+          <ScalarProperty Name="contactId" ColumnName="contactId" />
+          <ScalarProperty Name="creationDateTime" ColumnName="creationDateTime" />
+          <ScalarProperty Name="companyId" ColumnName="companyId" />
+          <ScalarProperty Name="company" ColumnName="company" />
+          <ScalarProperty Name="contactFulName" ColumnName="contactFulName" />
+          <ScalarProperty Name="orderCreationDate" ColumnName="orderCreationDate" />
+          <ScalarProperty Name="orderCreationTime" ColumnName="orderCreationTime" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

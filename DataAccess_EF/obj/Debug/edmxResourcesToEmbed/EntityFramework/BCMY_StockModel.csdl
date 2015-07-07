@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BCMY_StockModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="TblBusiness">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="addressLine1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="addressLine2" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="addressLine3" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+    <Property Name="postcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="bank" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="accountNumber" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="sortcode" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="iban" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+    <Property Name="swift" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
+  </EntityType>
+  <EntityType Name="TblContact">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="title" Type="String" MaxLength="5" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="firstName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="lastName" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="position" Type="String" MaxLength="55" FixedLength="false" Unicode="false" />
+    <Property Name="directDial" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="extension" Type="Int32" />
+    <Property Name="email" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="status" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="customerSupplierId" Type="Int32" />
+    <NavigationProperty Name="TblCustomerSupplier" Relationship="Self.FK__TblContac__custo__719CDDE7" FromRole="TblContact" ToRole="TblCustomerSupplier" />
+    <NavigationProperty Name="TblOrders" Relationship="Self.FK__TblOrder__contac__76619304" FromRole="TblContact" ToRole="TblOrder" />
+  </EntityType>
+  <EntityType Name="TblCustomerSupplier">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="name" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="logo" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" />
+    <Property Name="addressLine1" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="addressLine2" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="addressLine3" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="town" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="county" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="postcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="country" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="telephone" Type="String" MaxLength="25" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="bank" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+    <Property Name="vatNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="accountNumber" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="sortcode" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+    <Property Name="iban" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="swift" Type="String" MaxLength="11" FixedLength="false" Unicode="false" />
+    <Property Name="creationDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="inactiveDateTime" Type="DateTime" Precision="3" />
+    <Property Name="active" Type="Boolean" Nullable="false" />
+    <NavigationProperty Name="TblContacts" Relationship="Self.FK__TblContac__custo__719CDDE7" FromRole="TblCustomerSupplier" ToRole="TblContact" />
+  </EntityType>
+  <EntityType Name="TblNegotiation">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productId" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="negotiatedPricePerItem" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="totalAmount" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="negotiationDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="orderId" Type="Int32" />
+    <NavigationProperty Name="TblOrder" Relationship="Self.FK__TblNegoti__order__7E02B4CC" FromRole="TblNegotiation" ToRole="TblOrder" />
+  </EntityType>
+  <EntityType Name="TblOrder">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="type" Type="String" MaxLength="10" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="total" Type="Decimal" Precision="20" Scale="5" />
+    <Property Name="contactId" Type="Int32" />
+    <Property Name="creationDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <NavigationProperty Name="TblContact" Relationship="Self.FK__TblOrder__contac__76619304" FromRole="TblOrder" ToRole="TblContact" />
+    <NavigationProperty Name="TblNegotiations" Relationship="Self.FK__TblNegoti__order__7E02B4CC" FromRole="TblOrder" ToRole="TblNegotiation" />
+    <NavigationProperty Name="TblOrderLines" Relationship="Self.FK__TblOrderL__order__7A3223E8" FromRole="TblOrder" ToRole="TblOrderLine" />
+  </EntityType>
+  <EntityType Name="TblOrderLine">
+    <Key>
+      <PropertyRef Name="id" />
+    </Key>
+    <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="productId" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="negotiatedPricePerItem" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="totalAmount" Type="Decimal" Precision="10" Scale="5" />
+    <Property Name="status" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="orderLineQuantityStatus" Type="String" MaxLength="Max" FixedLength="false" Unicode="false" Nullable="false" />
+    <Property Name="orderlineDateTime" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="orderId" Type="Int32" />
+    <NavigationProperty Name="TblOrder" Relationship="Self.FK__TblOrderL__order__7A3223E8" FromRole="TblOrderLine" ToRole="TblOrder" />
+  </EntityType>
+  <EntityType Name="TblProductStock">
+    <Key>
+      <PropertyRef Name="productId" />
+    </Key>
+    <Property Name="productId" Type="Int32" Nullable="false" />
+    <Property Name="quantity" Type="Int32" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__TblContac__custo__719CDDE7">
+    <End Role="TblCustomerSupplier" Type="Self.TblCustomerSupplier" Multiplicity="0..1" />
+    <End Role="TblContact" Type="Self.TblContact" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblCustomerSupplier">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblContact">
+        <PropertyRef Name="customerSupplierId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblOrder__contac__76619304">
+    <End Role="TblContact" Type="Self.TblContact" Multiplicity="0..1" />
+    <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblContact">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblOrder">
+        <PropertyRef Name="contactId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblNegoti__order__7E02B4CC">
+    <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="0..1" />
+    <End Role="TblNegotiation" Type="Self.TblNegotiation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOrder">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblNegotiation">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__TblOrderL__order__7A3223E8">
+    <End Role="TblOrder" Type="Self.TblOrder" Multiplicity="0..1" />
+    <End Role="TblOrderLine" Type="Self.TblOrderLine" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TblOrder">
+        <PropertyRef Name="id" />
+      </Principal>
+      <Dependent Role="TblOrderLine">
+        <PropertyRef Name="orderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="BCMY_StockEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="TblBusinesses" EntityType="Self.TblBusiness" />
+    <EntitySet Name="TblContacts" EntityType="Self.TblContact" />
+    <EntitySet Name="TblCustomerSuppliers" EntityType="Self.TblCustomerSupplier" />
+    <EntitySet Name="TblNegotiations" EntityType="Self.TblNegotiation" />
+    <EntitySet Name="TblOrders" EntityType="Self.TblOrder" />
+    <EntitySet Name="TblOrderLines" EntityType="Self.TblOrderLine" />
+    <EntitySet Name="TblProductStocks" EntityType="Self.TblProductStock" />
+    <AssociationSet Name="FK__TblContac__custo__719CDDE7" Association="Self.FK__TblContac__custo__719CDDE7">
+      <End Role="TblCustomerSupplier" EntitySet="TblCustomerSuppliers" />
+      <End Role="TblContact" EntitySet="TblContacts" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblOrder__contac__76619304" Association="Self.FK__TblOrder__contac__76619304">
+      <End Role="TblContact" EntitySet="TblContacts" />
+      <End Role="TblOrder" EntitySet="TblOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblNegoti__order__7E02B4CC" Association="Self.FK__TblNegoti__order__7E02B4CC">
+      <End Role="TblOrder" EntitySet="TblOrders" />
+      <End Role="TblNegotiation" EntitySet="TblNegotiations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__TblOrderL__order__7A3223E8" Association="Self.FK__TblOrderL__order__7A3223E8">
+      <End Role="TblOrder" EntitySet="TblOrders" />
+      <End Role="TblOrderLine" EntitySet="TblOrderLines" />
+    </AssociationSet>
+    <FunctionImport Name="SP_ConfirmOrder" ReturnType="Collection(String)">
+      <Parameter Name="orderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_CreateOrder" ReturnType="Collection(Int32)">
+      <Parameter Name="companyId" Mode="In" Type="Int32" />
+      <Parameter Name="contactFulName" Mode="In" Type="String" />
+      <Parameter Name="type" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetAllOrderViewModels" ReturnType="Collection(BCMY_StockModel.SP_GetAllOrderViewModels_Result)" />
+    <FunctionImport Name="SP_GetContactInfo">
+      <Parameter Name="contactId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetContactsByCustomerSupplierId" ReturnType="Collection(BCMY_StockModel.SP_GetContactsByCustomerSupplierId_Result)">
+      <Parameter Name="customerSupplierId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetContactsWithCompanyNames" ReturnType="Collection(BCMY_StockModel.SP_GetContactsWithCompanyNames_Result)" />
+    <FunctionImport Name="SP_GetCustomerSuppliersByFullName" ReturnType="Collection(BCMY_StockModel.SP_GetCustomerSuppliersByFullName_Result)">
+      <Parameter Name="fullName" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetNegotiationsByOrderProductIds" ReturnType="Collection(BCMY_StockModel.SP_GetNegotiationsByOrderProductIds_Result)">
+      <Parameter Name="orderId" Mode="In" Type="Int32" />
+      <Parameter Name="productListId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetOrderlineInfoById" ReturnType="Collection(BCMY_StockModel.SP_GetOrderlineInfoById_Result)">
+      <Parameter Name="orderlineId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetOrderLinesByOrderId" ReturnType="Collection(BCMY_StockModel.SP_GetOrderLinesByOrderId_Result)">
+      <Parameter Name="orderIdVal" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetOrderVmById" ReturnType="Collection(BCMY_StockModel.SP_GetOrderVmById_Result)">
+      <Parameter Name="orderId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_GetSuccessNegotiationsByProductId" ReturnType="Collection(BCMY_StockModel.SP_GetSuccessNegotiationsByProductId_Result)">
+      <Parameter Name="orderId" Mode="In" Type="Int32" />
+      <Parameter Name="productListId" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_PopulateTblProductStockForTesting" />
+    <FunctionImport Name="SP_SaveOrderLineWithNegotiation" ReturnType="Collection(BCMY_StockModel.SP_SaveOrderLineWithNegotiation_Result)">
+      <Parameter Name="productListId" Mode="In" Type="Int32" />
+      <Parameter Name="quantityVal" Mode="In" Type="Decimal" />
+      <Parameter Name="pricePerItem" Mode="In" Type="Decimal" />
+      <Parameter Name="totalAmountVal" Mode="In" Type="Decimal" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="dateTime" Mode="In" Type="DateTime" />
+      <Parameter Name="orderIdVal" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SearchOrders" ReturnType="Collection(BCMY_StockModel.SP_SearchOrders_Result)">
+      <Parameter Name="companyId" Mode="In" Type="Int32" />
+      <Parameter Name="contactFulName" Mode="In" Type="String" />
+      <Parameter Name="orderId" Mode="In" Type="Int32" />
+      <Parameter Name="status" Mode="In" Type="String" />
+      <Parameter Name="orderType" Mode="In" Type="String" />
+      <Parameter Name="creationDateFrom" Mode="In" Type="DateTime" />
+      <Parameter Name="creationDateTo" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_SearchOrders_Simple" ReturnType="Collection(BCMY_StockModel.SP_SearchOrders_Simple_Result)" />
+  </EntityContainer>
+  <ComplexType Name="SP_GetAllOrderViewModels_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="total" Nullable="true" Precision="20" Scale="5" />
+    <Property Type="Int32" Name="contactId" Nullable="true" />
+    <Property Type="DateTime" Name="creationDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="companyId" Nullable="true" />
+    <Property Type="String" Name="company" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="contactFulName" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="orderCreationDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="orderCreationTime" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="SP_GetContactsByCustomerSupplierId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="firstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="position" Nullable="true" MaxLength="55" />
+    <Property Type="String" Name="directDial" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="extension" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="notes" Nullable="true" />
+    <Property Type="Int32" Name="customerSupplierId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GetContactsWithCompanyNames_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="title" Nullable="false" MaxLength="5" />
+    <Property Type="String" Name="firstName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="lastName" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="position" Nullable="true" MaxLength="55" />
+    <Property Type="String" Name="directDial" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="extension" Nullable="true" />
+    <Property Type="String" Name="email" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="notes" Nullable="true" />
+    <Property Type="Int32" Name="customerSupplierId" Nullable="true" />
+    <Property Type="String" Name="customerSupplierName" Nullable="false" MaxLength="30" />
+  </ComplexType>
+  <ComplexType Name="SP_GetCustomerSuppliersByFullName_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="name" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="logo" Nullable="true" />
+    <Property Type="String" Name="addressLine1" Nullable="false" MaxLength="30" />
+    <Property Type="String" Name="addressLine2" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="addressLine3" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="postcode" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="country" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="telephone" Nullable="false" MaxLength="25" />
+    <Property Type="String" Name="bank" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="vatNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="accountNumber" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="sortcode" Nullable="true" MaxLength="20" />
+    <Property Type="String" Name="iban" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="swift" Nullable="true" MaxLength="11" />
+    <Property Type="DateTime" Name="creationDateTime" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="inactiveDateTime" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="active" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_GetNegotiationsByOrderProductIds_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="false" />
+    <Property Type="Decimal" Name="quantity" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="negotiatedPricePerItem" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="totalAmount" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="negotiationDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="orderId" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_GetOrderlineInfoById_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="false" />
+    <Property Type="Decimal" Name="quantity" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="negotiatedPricePerItem" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="totalAmount" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="orderLineQuantityStatus" Nullable="false" />
+    <Property Type="DateTime" Name="orderlineDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="orderId" Nullable="true" />
+    <Property Type="String" Name="date" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="time" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="categoryId" Nullable="true" />
+    <Property Type="String" Name="category" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="conditionId" Nullable="true" />
+    <Property Type="String" Name="condition" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="brandId" Nullable="false" />
+    <Property Type="String" Name="brand" Nullable="false" MaxLength="40" />
+    <Property Type="Decimal" Name="marketvalue" Nullable="false" Precision="19" />
+    <Property Type="Int32" Name="stockCount" Nullable="false" />
+    <Property Type="String" Name="model" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SP_GetOrderLinesByOrderId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="false" />
+    <Property Type="Decimal" Name="quantity" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="negotiatedPricePerItem" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="totalAmount" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="orderLineQuantityStatus" Nullable="false" />
+    <Property Type="DateTime" Name="orderlineDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="orderId" Nullable="true" />
+    <Property Type="String" Name="model" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SP_GetOrderVmById_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="total" Nullable="true" Precision="20" Scale="5" />
+    <Property Type="Int32" Name="contactId" Nullable="true" />
+    <Property Type="DateTime" Name="creationDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="companyId" Nullable="true" />
+    <Property Type="String" Name="company" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="contactFulName" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="orderCreationDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="orderCreationTime" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="SP_GetSuccessNegotiationsByProductId_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="false" />
+    <Property Type="Decimal" Name="quantity" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="negotiatedPricePerItem" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="totalAmount" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="DateTime" Name="negotiationDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="orderId" Nullable="true" />
+    <Property Type="String" Name="date" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="time" Nullable="true" MaxLength="8" />
+    <Property Type="Int32" Name="customerSupplierId" Nullable="false" />
+    <Property Type="String" Name="cusomerSupplierName" Nullable="false" MaxLength="30" />
+    <Property Type="Int32" Name="contactId" Nullable="false" />
+    <Property Type="String" Name="contactName" Nullable="false" MaxLength="101" />
+  </ComplexType>
+  <ComplexType Name="SP_SaveOrderLineWithNegotiation_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="Int32" Name="productId" Nullable="false" />
+    <Property Type="Decimal" Name="quantity" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="negotiatedPricePerItem" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="Decimal" Name="totalAmount" Nullable="true" Precision="10" Scale="5" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="String" Name="orderLineQuantityStatus" Nullable="false" />
+    <Property Type="DateTime" Name="orderlineDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="orderId" Nullable="true" />
+    <Property Type="String" Name="model" Nullable="false" MaxLength="150" />
+  </ComplexType>
+  <ComplexType Name="SP_SearchOrders_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="total" Nullable="true" Precision="20" Scale="5" />
+    <Property Type="Int32" Name="contactId" Nullable="true" />
+    <Property Type="DateTime" Name="creationDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="companyId" Nullable="true" />
+    <Property Type="String" Name="company" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="contactFulName" Nullable="true" MaxLength="101" />
+    <Property Type="String" Name="orderCreationDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="orderCreationTime" Nullable="true" MaxLength="8" />
+  </ComplexType>
+  <ComplexType Name="SP_SearchOrders_Simple_Result">
+    <Property Type="Int32" Name="id" Nullable="false" />
+    <Property Type="String" Name="type" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="status" Nullable="false" MaxLength="20" />
+    <Property Type="Decimal" Name="total" Nullable="true" Precision="20" Scale="5" />
+    <Property Type="Int32" Name="contactId" Nullable="true" />
+    <Property Type="DateTime" Name="creationDateTime" Nullable="false" Precision="23" />
+    <Property Type="Int32" Name="companyId" Nullable="true" />
+    <Property Type="String" Name="company" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="contactFulName" Nullable="false" MaxLength="101" />
+    <Property Type="String" Name="orderCreationDate" Nullable="true" MaxLength="30" />
+    <Property Type="String" Name="orderCreationTime" Nullable="true" MaxLength="8" />
+  </ComplexType>
+</Schema>

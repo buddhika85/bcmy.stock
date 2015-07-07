@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <parameter name="IIS Web Application Name" description="" value="BCMYStockAPI" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^E:\\KTP\ Project\\Dropbox\\Stage\ 1\ -\ Mini\ project\\Implementation\\VisualStudioSolution\\bcmy\.stock\\BCMY\.WebAPI\\obj\\Release\\Package\\PackageTmp$" />
+    <parameterEntry kind="ProviderPath" scope="setAcl" match="^E:\\KTP\ Project\\Dropbox\\Stage\ 1\ -\ Mini\ project\\Implementation\\VisualStudioSolution\\bcmy\.stock\\BCMY\.WebAPI\\obj\\Release\\Package\\PackageTmp$" />
+  </parameter>
+  <parameter name="BCMYEntities-Web.config Connection String" description="" value="metadata=res://*/EntityFramework.BcmyModel.csdl|res://*/EntityFramework.BcmyModel.ssdl|res://*/EntityFramework.BcmyModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=77.73.5.221,3306;Initial Catalog=BCMY;Persist Security Info=True;User ID=sa;Password=Ch0c0BunnyT@sty999&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\KTP\ Project\\Dropbox\\Stage\ 1\ -\ Mini\ project\\Implementation\\VisualStudioSolution\\bcmy\.stock\\BCMY\.WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BCMYEntities']/@connectionString" />
+  </parameter>
+  <parameter name="BCMY_StockEntities-Web.config Connection String" description="" value="metadata=res://*/EntityFramework.BcmyStockModel.csdl|res://*/EntityFramework.BcmyStockModel.ssdl|res://*/EntityFramework.BcmyStockModel.msl;provider=System.Data.SqlClient;provider connection string=&quot;Data Source=77.73.5.221,3306;Initial Catalog=BCMY_Stock;Persist Security Info=True;User ID=sa;Password=Ch0c0BunnyT@sty999&quot;" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\KTP\ Project\\Dropbox\\Stage\ 1\ -\ Mini\ project\\Implementation\\VisualStudioSolution\\bcmy\.stock\\BCMY\.WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='BCMY_StockEntities']/@connectionString" />
+  </parameter>
+  <parameter name="DefaultConnection-Web.config Connection String" description="" value="Data Source=(LocalDb)\v11.0;AttachDbFilename=|DataDirectory|\aspnet-BCMY.WebAPI-20150527043417.mdf;Initial Catalog=aspnet-BCMY.WebAPI-20150527043417;Integrated Security=True" tags="">
+    <parameterEntry kind="XmlFile" scope="E:\\KTP\ Project\\Dropbox\\Stage\ 1\ -\ Mini\ project\\Implementation\\VisualStudioSolution\\bcmy\.stock\\BCMY\.WebAPI\\obj\\Release\\Package\\PackageTmp\\Web\.config$" match="/configuration/connectionStrings/add[@name='DefaultConnection']/@connectionString" />
+  </parameter>
+</parameters>

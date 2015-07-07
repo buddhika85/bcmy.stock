@@ -1,0 +1,158 @@
+﻿<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>BCMY Stock Management</title>
+
+    <!-- Style sheets -->
+    <!--Bootstrap basic-->
+    <!--<link href="Content/bootstrap.css" rel="stylesheet" />-->
+    <!--Bootstrap united-->
+    <!--<link href="Content/bootstrap-min-united.css" rel="stylesheet" />-->
+    <!--Bootstrap cosmo-->
+    <link href="Content/bootstrap-min-cosmo.css" rel="stylesheet" />
+    <!--Bootstrap paper-->
+    <!--<link href="Content/bootstrap-min-paper.css" rel="stylesheet" />-->
+    <!--Bootstrap cerulean-->
+    <!--<link href="Content/bootstrap-min-cerulean.css" rel="stylesheet" />-->
+    <!--Bootstrap spacelab-->
+    <!--<link href="Content/bootstrap-min-spacelab.css" rel="stylesheet" />-->
+    <!--Bootstrap simplex-->
+    <!--<link href="Content/bootstrap-min-simplex.css" rel="stylesheet" />-->
+    <!--Bootstrap readable-->
+    <!--<link href="Content/bootstrap-min-readable.css" rel="stylesheet" />-->
+    <!--Bootstrap yeti-->
+    <!--<link href="Content/bootstrap-min-yeti.css" rel="stylesheet" />-->
+    <!--Bootstrap darky - do not use-->
+    <!--<link href="Content/bootstrap-min-darky.css" rel="stylesheet" />-->
+    <!--Bootstrap green - do not use-->
+    <!--<link href="Content/bootstrap-min-united-Green.css" rel="stylesheet" />-->
+
+    <!--Jquery UI - date pickers-->
+    <link href="Content/jquery-ui.min.css" rel="stylesheet" />
+    <link href="Content/jquery-ui.structure.min.css" rel="stylesheet" />
+    <link href="Content/jquery-ui.theme.min.css" rel="stylesheet" />
+
+    <!--Jquery.DataTable-->
+    <link href="Content/datatable/jquery.dataTables.css" rel="stylesheet" />
+
+    <!--angular block UI-->
+    <link href="Content/angular-block-ui.min.css" rel="stylesheet" />
+
+    <!--bootstrap date picker-->
+    <!--<link href="Content/bootstrap-datetimepicker.min.css" rel="stylesheet" />-->
+
+    <!--Custom styles-->
+    <link href="Content/app.css" rel="stylesheet" />
+
+</head>
+<body ng-app="stockManagement">
+   
+    <!--Top most navigation menu-->
+    <nav class="navbar navbar-default">        
+        <div class="container-fluid">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand">BCMY Stock Management</span>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li><a ui-sref="dashboard">Dashboard</a></li>
+                    <li><a href="#">User management</a></li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Customer/Supplier <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a ui-sref="customerSupplierList">Manage Customer/Supplier</a></li>                                
+                            <li class="divider"></li>
+                            <li><a ui-sref="contactList">Manage Contact</a></li>                        
+                        </ul>
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Orders <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a ui-sref="addEditSalesOrders">Add sales orders</a></li>
+                            <li><a ui-sref="searchSalesOrders">View/Edit sales orders</a></li>                            
+                            <li class="divider"></li>
+                            <li><a href="#">Add purchase orders</a></li>
+                            <li><a href="#">View/Edit purchase orders</a></li>                            
+                        </ul>
+                    </li>
+                </ul>
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Options <span class="caret"></span></a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a href="#">Edit Profile</a></li>
+                            <li><a href="#">Change Password</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">Logout</a></li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+    </nav>
+    <!--End Top most navigation menu-->
+
+    <!--Html views get plugged in to below container div-->
+    <div class="container">
+        
+        <div data-ui-view>
+
+        </div>
+    </div>
+
+    <!--footer - http://www.bootply.com/117444 -->
+    <!--<footer>
+        <div class="navbar navbar-default navbar-fixed-bottom">  
+
+            <div class="navbar-collapse collapse" id="footer-body">
+                
+            </div>
+                      
+        </div>
+    </footer>-->
+
+    <!-- Library Scripts -->
+    <script src="Scripts/jquery-1.9.1.js"></script>
+    <script src="Scripts/jquery-ui-1.11.4.min.js"></script>
+    <script src="Scripts/jquery.maskedinput.min.js"></script>           <!--jquery UI masks-->
+    <script src="scripts/angular.js"></script>
+    <script src="Scripts/bootstrap.js"></script>
+    <script src="Scripts/AngularUI/ui-router.js"></script>              <!--angular UI router-->
+    <script src="Scripts/angular-resource.js"></script>                 <!--web service calls-->
+    <script src="Scripts/datatable/jquery.dataTables.min.js"></script>  <!--Jquery data table-->
+    <script src="Scripts/angular-file-upload.js"></script>              <!--angular file uploader-->
+    <script src="Scripts/angular-block-ui.min.js"></script>             <!--angular block UI-->
+    <script src="Scripts/moment.min.js"></script>                       <!--manipulate date time-->
+    <script src="Scripts/bootstrap-datetimepicker.min.js"></script>     <!--bootstrap date picker-->
+
+    <!-- Application Script -->
+    <script src="app/app.js"></script>   
+
+    <!-- Angular Services -->
+    <script src="common/common.services.js"></script>                   <!--common services-->
+    <script src="common/customerSupplierResource.js"></script>          <!--customerSupplier REST API calls-->
+    <script src="common/contactResource.js"></script>                   <!--contact REST API calls-->
+    
+    <!-- Controllers -->
+    <script src="app/dashboard/dashBoardCtrl.js"></script>
+    <script src="app/customerSupplier/customerSupplierListCtrl.js"></script>
+    <script src="app/contact/contactListCtrl.js"></script>
+    <script src="app/order/salesOrder/addEditSalesOrderCtrl.js"></script>
+    <script src="app/order/salesOrder/searchSalesOrdersCtrl.js"></script>
+    <script src="app/order/salesOrder/editSalesOrderCtrl.js"></script>
+
+    <!--Utilities-->
+    <script src="common/util.js"></script>
+
+</body>
+</html>

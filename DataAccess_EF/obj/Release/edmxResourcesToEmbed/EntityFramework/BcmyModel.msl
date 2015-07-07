@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BCMYModelStoreContainer" CdmEntityContainer="BCMYEntities">
+    <EntitySetMapping Name="vProductInfoes">
+      <EntityTypeMapping TypeName="BCMYModel.vProductInfo">
+        <MappingFragment StoreEntitySet="vProductInfo">
+          <ScalarProperty Name="productlistId" ColumnName="productlistId" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="weight_grams" ColumnName="weight_grams" />
+          <ScalarProperty Name="volume_cm3" ColumnName="volume_cm3" />
+          <ScalarProperty Name="product_image" ColumnName="product_image" />
+          <ScalarProperty Name="abbr" ColumnName="abbr" />
+          <ScalarProperty Name="model_public" ColumnName="model_public" />
+          <ScalarProperty Name="description_public" ColumnName="description_public" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="productbrandid" ColumnName="productbrandid" />
+          <ScalarProperty Name="productbrandname" ColumnName="productbrandname" />
+          <ScalarProperty Name="marketvalue" ColumnName="marketvalue" />
+          <ScalarProperty Name="actionId" ColumnName="actionId" />
+          <ScalarProperty Name="productActionName" ColumnName="productActionName" />
+          <ScalarProperty Name="producttypeid" ColumnName="producttypeid" />
+          <ScalarProperty Name="productcategory" ColumnName="productcategory" />
+          <ScalarProperty Name="ProductCatergoryName" ColumnName="ProductCatergoryName" />
+          <ScalarProperty Name="productcondition" ColumnName="productcondition" />
+          <ScalarProperty Name="conditionName" ColumnName="conditionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productbrands">
+      <EntityTypeMapping TypeName="BCMYModel.productbrand">
+        <MappingFragment StoreEntitySet="productbrand">
+          <ScalarProperty Name="productbrandname" ColumnName="productbrandname" />
+          <ScalarProperty Name="productbrandid" ColumnName="productbrandid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ProductCategories">
+      <EntityTypeMapping TypeName="BCMYModel.ProductCategory">
+        <MappingFragment StoreEntitySet="ProductCategory">
+          <ScalarProperty Name="ProductCatergoryName" ColumnName="ProductCatergoryName" />
+          <ScalarProperty Name="ProductCategoryID" ColumnName="ProductCategoryID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productConditions">
+      <EntityTypeMapping TypeName="BCMYModel.productCondition">
+        <MappingFragment StoreEntitySet="productCondition">
+          <ScalarProperty Name="conditionName" ColumnName="conditionName" />
+          <ScalarProperty Name="conditionID" ColumnName="conditionID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productlists">
+      <EntityTypeMapping TypeName="BCMYModel.productlist">
+        <MappingFragment StoreEntitySet="productlist">
+          <ScalarProperty Name="actionID" ColumnName="actionID" />
+          <ScalarProperty Name="status" ColumnName="status" />
+          <ScalarProperty Name="dateUpdated" ColumnName="dateUpdated" />
+          <ScalarProperty Name="description_public" ColumnName="description_public" />
+          <ScalarProperty Name="model_public" ColumnName="model_public" />
+          <ScalarProperty Name="abbr" ColumnName="abbr" />
+          <ScalarProperty Name="product_image" ColumnName="product_image" />
+          <ScalarProperty Name="volume_cm3" ColumnName="volume_cm3" />
+          <ScalarProperty Name="weight_grams" ColumnName="weight_grams" />
+          <ScalarProperty Name="productbrandid" ColumnName="productbrandid" />
+          <ScalarProperty Name="Description" ColumnName="Description" />
+          <ScalarProperty Name="quantity" ColumnName="quantity" />
+          <ScalarProperty Name="model" ColumnName="model" />
+          <ScalarProperty Name="producttypeid" ColumnName="producttypeid" />
+          <ScalarProperty Name="productlistid" ColumnName="productlistid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="productprices">
+      <EntityTypeMapping TypeName="BCMYModel.productprice">
+        <MappingFragment StoreEntitySet="productprice">
+          <ScalarProperty Name="pricelistID" ColumnName="pricelistID" />
+          <ScalarProperty Name="returnvalue" ColumnName="returnvalue" />
+          <ScalarProperty Name="marketvalue" ColumnName="marketvalue" />
+          <ScalarProperty Name="productlistid" ColumnName="productlistid" />
+          <ScalarProperty Name="productpriceid" ColumnName="productpriceid" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SP_GetDistinctProductModels" FunctionName="BCMYModel.Store.SP_GetDistinctProductModels" />
+  </EntityContainerMapping>
+</Mapping>
